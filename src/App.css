@@ -1,0 +1,36 @@
+.header {
+    height: 140px;
+    width: 100%;
+    position: relative;
+    background-color: rgba(44, 158, 230, 0.85);
+    text-align: center;
+    padding-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: cursive;
+}
+
+
+.header h3 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #e0e0e0;
+}
