@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_TO_CART } from '../redux/actions';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../redux/actions';
 
 function Home() {
     const [data, setData] = useState([]);
@@ -25,6 +25,9 @@ function Home() {
     useEffect(() => {
         fetchApiBook();
     }, []);
+    const remove_from_item = (id) => {
+        dispatch(REMOVE_FROM_CART(id));
+    }
     const filtredData = data.filter(d => d.Genre === selectedType);
     return (
         <div className="container mt-4">
@@ -90,7 +93,7 @@ function Home() {
                         <ul>
                             {
                                 items.map(i => (
-                                    <li key={i.ISBN}> {i.Title} - $ {i.Prix}  <button className="btn btn-warning">Delete</button> </li>
+                                    <li key={i.ISBN}> {i.Title} - $ {i.Prix}  <button className="btn btn-warning" onClick={() => remove_from_item(i.ISBN)} >Delete</button> </li>
                                 ))
                             }
                         </ul> : 'You Cart Is Empty !!! '

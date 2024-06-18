@@ -15,8 +15,13 @@ const reducer = (state = initialState, action) => {
                 total: newTotal,
             };
         case 'REMOVE_FROM_CART':
-            const filterItem=...state.items
-            return  ;
+            const filterItem= [...state.items.filter(p=>p.ISBN!==action.payload)];
+            const decreaseTotal = filterItem.reduce((acc,item)=>acc+parseFloat(item.Prix),0);
+            return {
+                ...state,
+                items:filterItem,
+                total:decreaseTotal
+            } ;
         default:
             return state;
     }
