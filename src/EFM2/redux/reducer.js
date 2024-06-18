@@ -14,6 +14,9 @@ const reducer = (state = initialState, action) => {
                 items: newCart,
                 total: newTotal,
             };
+        case 'REMOVE_FROM_CART':
+            const filterItem=...state.items
+            return  ;
         default:
             return state;
     }
